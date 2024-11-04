@@ -2,9 +2,17 @@
 
 namespace App\Models;
 
+use App\Models\Dospem;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Jabatan extends Model {
+class Jabatan extends Model
+{
     protected $primaryKey = 'idjabatan';
-    protected $fillable = [ 'jabatan' ];
+    protected $fillable = ['jabatan'];
+
+    public function dosen()
+    {
+        return $this->hasMany(Dospem::class, 'idjabatan');
+    }
 }
