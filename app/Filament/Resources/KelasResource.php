@@ -8,11 +8,13 @@ use App\Models\Kelas;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Actions\EditAction;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Card;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Infolists\Components\TextEntry;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use App\Filament\Resources\KelasResource\Pages;
@@ -48,11 +50,15 @@ class KelasResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('kodekelas')->label('Kode Kelas'),
+                TextColumn::make('mahasiswacount_count')
+                    ->counts('mahasiswacount')
+                    ->label('Jumlah Mahasiswa'),
             ])
             ->filters([
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
@@ -62,14 +68,26 @@ class KelasResource extends Resource
                 ]),
             ]);
     }
-
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                TextEntry::make('mahasiswa')
+                    ->getStateUsing(function ($record) {
+                        return $record->mahasiswa && $record->mahasiswa->isNotEmpty()
+                            ? $record->mahasiswa->map(fn($mahasiswa) => "• {$mahasiswa->namamhs}")->implode("<br>")
+                            : 'Tidak ada mahasiswa';
+                    })
+                    ->html()
+                    ->label('Daftar Mahasiswa'),
+            ]);
+    }
     public static function getPages(): array
     {
         return [
