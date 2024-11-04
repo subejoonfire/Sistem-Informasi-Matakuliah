@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Matakuliah extends Model
 {
@@ -11,8 +12,4 @@ class Matakuliah extends Model
     protected $casts = [
         'namamatakuliah' => 'array',
     ];
-    public function getPengajarAttribute()
-    {
-        return $this->hasMany(Dospem::class, 'idmatakuliah');
-    }
 }
