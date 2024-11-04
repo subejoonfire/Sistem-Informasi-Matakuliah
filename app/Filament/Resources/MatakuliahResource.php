@@ -74,8 +74,8 @@ class MatakuliahResource extends Resource
     {
         return [
             'index' => Pages\ListMatakuliahs::route('/'),
-            // 'create' => Pages\CreateMatakuliah::route('/create'),
-            // 'edit' => Pages\EditMatakuliah::route('/{record}/edit'),
+            'create' => Pages\CreateMatakuliah::route('/create'),
+            'edit' => Pages\EditMatakuliah::route('/{record}/edit'),
         ];
     }
 }
