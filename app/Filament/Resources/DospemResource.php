@@ -91,7 +91,9 @@ class DospemResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -112,6 +114,7 @@ class DospemResource extends Resource
         return [
             'index' => Pages\ListDospems::route('/'),
             'create' => Pages\CreateDospem::route('/create'),
+            'view' => Pages\ViewDospem::route('/{record}/view'),
             'edit' => Pages\EditDospem::route('/{record}/edit'),
         ];
     }

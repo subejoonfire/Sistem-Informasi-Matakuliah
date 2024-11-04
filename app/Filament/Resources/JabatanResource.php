@@ -53,6 +53,7 @@ class JabatanResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
@@ -75,6 +76,7 @@ class JabatanResource extends Resource
         return [
             'index' => Pages\ListJabatans::route('/'),
             'create' => Pages\CreateJabatan::route('/create'),
+            'view' => Pages\ViewJabatan::route('/{record}/view'),
             'edit' => Pages\EditJabatan::route('/{record}/edit'),
         ];
     }
