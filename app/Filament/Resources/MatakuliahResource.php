@@ -23,6 +23,8 @@ class MatakuliahResource extends Resource
     protected static ?string $navigationLabel = 'Mata Kuliah';
 
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
+    protected static ?string $modelLabel = 'Mata Kuliah';
+    protected static ?string $navigationGroup = 'Kemahasiswaan';
 
     public static function form(Form $form): Form
     {

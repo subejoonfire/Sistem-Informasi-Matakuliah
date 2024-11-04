@@ -26,6 +26,8 @@ class MahasiswaResource extends Resource
     protected static ?string $navigationLabel = 'Mahasiswa';
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $modelLabel = 'Mahasiswa';
+    protected static ?string $navigationGroup = 'Kemahasiswaan';
 
     public static function form(Form $form): Form
     {

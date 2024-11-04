@@ -28,6 +28,8 @@ class JabatanResource extends Resource
 
     protected static ?string $navigationLabel = 'Jabatan';
     protected static ?string $navigationIcon = 'heroicon-o-briefcase';
+    protected static ?string $modelLabel = 'Jabatan';
+    protected static ?string $navigationGroup = 'Dosen';
 
     public static function form(Form $form): Form
     {

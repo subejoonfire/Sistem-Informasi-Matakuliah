@@ -30,10 +30,10 @@ use App\Filament\Resources\DospemResource\Pages\CreateDospem;
 class DospemResource extends Resource
 {
     protected static ?string $model = Dospem::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-user';
-
     protected static ?string $navigationLabel = 'Dosen Pembimbing';
+    protected static ?string $modelLabel = 'Dosen Pembimbing';
+    protected static ?string $navigationGroup = 'Dosen';
 
     public static function form(Form $form): Form
     {

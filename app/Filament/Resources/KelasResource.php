@@ -28,6 +28,8 @@ class KelasResource extends Resource
 
     protected static ?string $navigationLabel = 'Kelas';
     protected static ?string $navigationIcon = 'heroicon-o-building-library';
+    protected static ?string $modelLabel = 'Kelas';
+    protected static ?string $navigationGroup = 'Kemahasiswaan';
 
     public static function form(Form $form): Form
     {
