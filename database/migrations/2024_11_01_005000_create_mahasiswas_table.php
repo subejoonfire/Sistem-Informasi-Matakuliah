@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('mahasiswas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('idkelas');
-            $table->unsignedBigInteger('iddospem');
+            $table->unsignedBigInteger('idkelas')->nullable();
+            $table->unsignedBigInteger('iddospem')->nullable();
             $table->string('namamahasiswa');
             $table->timestamps();
         });
