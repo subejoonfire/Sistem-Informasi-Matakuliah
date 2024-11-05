@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('dospems', function (Blueprint $table) {
-            $table->id('iddospem');
-            $table->foreignId('idjabatan')->constrained('jabatans')->onDelete('cascade')->nullable();
+            $table->id();
+            $table->foreignId('id')->constrained('jabatans')->onDelete('cascade')->nullable();
             $table->json('idmatakuliah')->constrained('matakuliahs')->onDelete('cascade')->nullable();
             $table->string('namadosen');
             $table->timestamps();
