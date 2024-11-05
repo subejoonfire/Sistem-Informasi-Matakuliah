@@ -81,7 +81,7 @@ class KelasResource extends Resource
                 TextEntry::make('mahasiswa')
                     ->getStateUsing(function ($record) {
                         return $record->mahasiswa && $record->mahasiswa->isNotEmpty()
-                            ? $record->mahasiswa->map(fn($mahasiswa) => "• {$mahasiswa->namamhs}")->implode("<br>")
+                            ? $record->mahasiswa->map(fn($mahasiswa) => "• {$mahasiswa->namamahasiswa}")->implode("<br>")
                             : 'Tidak ada mahasiswa';
                     })
                     ->html()

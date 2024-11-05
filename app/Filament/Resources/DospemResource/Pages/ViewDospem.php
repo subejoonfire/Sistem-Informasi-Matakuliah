@@ -29,7 +29,7 @@ class ViewDospem extends ManageRelatedRecords
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('namamhs')
+                Forms\Components\TextInput::make('namamahasiswa')
                     ->required()
                     ->label('Nama Mahasiswa')
                     ->maxLength(255),
@@ -41,9 +41,9 @@ class ViewDospem extends ManageRelatedRecords
         return $table
             ->recordTitleAttribute('iddospem')
             ->columns([
-                Tables\Columns\TextColumn::make('idmhs')
+                Tables\Columns\TextColumn::make('idmahasiswa')
                     ->label('ID Mahasiswa'),
-                Tables\Columns\TextColumn::make('namamhs')
+                Tables\Columns\TextColumn::make('namamahasiswa')
                     ->label('Nama Mahasiswa'),
                 Tables\Columns\TextColumn::make('kelas.kodekelas')
                     ->label('Kelas'),

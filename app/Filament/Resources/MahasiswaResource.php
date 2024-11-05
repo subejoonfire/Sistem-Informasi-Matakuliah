@@ -49,7 +49,7 @@ class MahasiswaResource extends Resource
                             ];
                         }))
                         ->label('Nama Dosen Pembimbing'),
-                    TextInput::make('namamhs')
+                    TextInput::make('namamahasiswa')
                         ->required()
                         ->columnSpan(2)
                         ->label('Nama Mahasiswa')
@@ -61,12 +61,12 @@ class MahasiswaResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('idmhs')
+                TextColumn::make('idmahasiswa')
                     ->label('ID Mahasiswa')
                     ->sortable()
                     ->searchable(),
 
-                TextColumn::make('namamhs')
+                TextColumn::make('namamahasiswa')
                     ->label('Nama Mahasiswa')
                     ->sortable()
                     ->searchable(),
