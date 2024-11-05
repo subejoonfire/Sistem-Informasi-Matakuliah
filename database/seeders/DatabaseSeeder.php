@@ -89,14 +89,14 @@ class MahasiswasSeeder extends Seeder
     public function run()
     {
         DB::table('mahasiswas')->insert([
-            ['idmhs' => 1, 'idkelas' => 2, 'iddospem' => 2, 'namamhs' => 'Ahlul Nazar', 'created_at' => now(), 'updated_at' => now()],
-            ['idmhs' => 2, 'idkelas' => 1, 'iddospem' => 1, 'namamhs' => 'Budi Santoso', 'created_at' => now(), 'updated_at' => now()],
-            ['idmhs' => 3, 'idkelas' => 3, 'iddospem' => 3, 'namamhs' => 'Cynthia Wulan', 'created_at' => now(), 'updated_at' => now()],
-            ['idmhs' => 4, 'idkelas' => 4, 'iddospem' => 4, 'namamhs' => 'Dewi Kinasih', 'created_at' => now(), 'updated_at' => now()],
-            ['idmhs' => 5, 'idkelas' => 5, 'iddospem' => 5, 'namamhs' => 'Fahri Amrullah', 'created_at' => now(), 'updated_at' => now()],
-            ['idmhs' => 6, 'idkelas' => 6, 'iddospem' => 6, 'namamhs' => 'Gina Indira', 'created_at' => now(), 'updated_at' => now()],
-            ['idmhs' => 7, 'idkelas' => 7, 'iddospem' => 1, 'namamhs' => 'Hendra Saputra', 'created_at' => now(), 'updated_at' => now()],
-            ['idmhs' => 8, 'idkelas' => 2, 'iddospem' => 2, 'namamhs' => 'Intan Permatasari', 'created_at' => now(), 'updated_at' => now()],
+            ['idmahasiswa' => 1, 'idkelas' => 2, 'iddospem' => 2, 'namamahasiswa' => 'Ahlul Nazar', 'created_at' => now(), 'updated_at' => now()],
+            ['idmahasiswa' => 2, 'idkelas' => 1, 'iddospem' => 1, 'namamahasiswa' => 'Budi Santoso', 'created_at' => now(), 'updated_at' => now()],
+            ['idmahasiswa' => 3, 'idkelas' => 3, 'iddospem' => 3, 'namamahasiswa' => 'Cynthia Wulan', 'created_at' => now(), 'updated_at' => now()],
+            ['idmahasiswa' => 4, 'idkelas' => 4, 'iddospem' => 4, 'namamahasiswa' => 'Dewi Kinasih', 'created_at' => now(), 'updated_at' => now()],
+            ['idmahasiswa' => 5, 'idkelas' => 5, 'iddospem' => 5, 'namamahasiswa' => 'Fahri Amrullah', 'created_at' => now(), 'updated_at' => now()],
+            ['idmahasiswa' => 6, 'idkelas' => 6, 'iddospem' => 6, 'namamahasiswa' => 'Gina Indira', 'created_at' => now(), 'updated_at' => now()],
+            ['idmahasiswa' => 7, 'idkelas' => 7, 'iddospem' => 1, 'namamahasiswa' => 'Hendra Saputra', 'created_at' => now(), 'updated_at' => now()],
+            ['idmahasiswa' => 8, 'idkelas' => 2, 'iddospem' => 2, 'namamahasiswa' => 'Intan Permatasari', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }
