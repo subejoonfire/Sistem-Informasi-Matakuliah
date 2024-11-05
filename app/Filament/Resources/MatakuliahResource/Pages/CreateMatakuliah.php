@@ -10,4 +10,8 @@ class CreateMatakuliah extends CreateRecord
 {
     protected static string $resource = MatakuliahResource::class;
     protected static ?string $title = 'Tambah Mata Kuliah';
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }
