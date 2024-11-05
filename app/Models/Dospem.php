@@ -9,10 +9,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Dospem extends Model
 {
-    protected $primaryKey = 'iddospem';
-    protected $fillable = ['namadosen', 'idjabatan', 'idmatakuliah'];
+    protected $primaryKey = 'id';
+    protected $fillable = ['namadosen', 'idjabatan', 'idmatkul'];
     protected $casts = [
-        'idmatakuliah' => 'array',
+        'idmatkul' => 'array',
     ];
 
     public function jabatan()
@@ -22,16 +22,16 @@ class Dospem extends Model
     }
     public function getMatakuliahAttribute()
     {
-        $matakuliahIds = is_array($this->idmatakuliah) ? $this->idmatakuliah : json_decode($this->idmatakuliah, true);
+        $matakuliahIds = is_array($this->idmatkul) ? $this->idmatkul : json_decode($this->idmatkul, true);
 
         if (!$matakuliahIds) {
             return [];
         }
 
-        return Matakuliah::whereIn('idmatakuliah', $matakuliahIds)->pluck('namamatakuliah')->toArray();
+        return Matakuliah::whereIn('matakuliahs.id', $matakuliahIds)->pluck('namamatakuliah')->toArray();
     }
     public function mahasiswa(): HasMany
     {
-        return $this->hasMany(Mahasiswa::class, 'iddospem');
+        return $this->hasMany(Mahasiswa::class, 'idmahasiswa');
     }
 }

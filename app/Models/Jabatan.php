@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Jabatan extends Model
 {
-    protected $primaryKey = 'idjabatan';
+    protected $primaryKey = 'id';
     protected $fillable = ['jabatan'];
 
     public function dosen()
     {
-        return $this->hasMany(Dospem::class, 'idjabatan');
+        return $this->hasMany(Dospem::class, 'id');
     }
 }

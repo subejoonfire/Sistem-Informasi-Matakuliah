@@ -9,14 +9,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Kelas extends Model
 {
-    protected $primaryKey = 'idkelas';
+    protected $primaryKey = 'id';
     protected $fillable = ['kodekelas'];
     public function mahasiswacount(): HasMany
     {
-        return $this->hasMany(Mahasiswa::class, 'idkelas');
+        return $this->hasMany(Mahasiswa::class, 'id');
     }
     public function mahasiswa(): HasMany
     {
-        return $this->hasMany(Mahasiswa::class, 'idkelas');
+        return $this->hasMany(Mahasiswa::class, 'id');
     }
 }
