@@ -39,9 +39,9 @@ class ViewDospem extends ManageRelatedRecords
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('iddospem')
+            ->recordTitleAttribute('id')
             ->columns([
-                Tables\Columns\TextColumn::make('idmahasiswa')
+                Tables\Columns\TextColumn::make('id')
                     ->label('ID Mahasiswa'),
                 Tables\Columns\TextColumn::make('namamahasiswa')
                     ->label('Nama Mahasiswa'),

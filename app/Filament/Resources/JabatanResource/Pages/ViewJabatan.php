@@ -29,7 +29,7 @@ class ViewJabatan extends ManageRelatedRecords
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('idjabatan')
+                Forms\Components\TextInput::make('id')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -38,7 +38,7 @@ class ViewJabatan extends ManageRelatedRecords
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('idjabatan')
+            ->recordTitleAttribute('id')
             ->columns([
                 Tables\Columns\TextColumn::make('namadosen')
                     ->label('Nama Dosen'),
