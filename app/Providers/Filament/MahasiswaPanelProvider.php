@@ -23,8 +23,10 @@ class MahasiswaPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->default()
             ->id('mahasiswa')
             ->path('mahasiswa')
+            ->login()
             ->colors([
                 'primary' => Color::Blue,
             ])
