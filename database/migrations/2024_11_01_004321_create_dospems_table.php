@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('dospems', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id')->constrained('jabatans')->onDelete('cascade')->nullable();
-            $table->json('idmatakuliah')->constrained('matakuliahs')->onDelete('cascade')->nullable();
+            $table->json('id')->constrained('matakuliahs')->onDelete('cascade')->nullable();
             $table->string('namadosen');
             $table->timestamps();
         });

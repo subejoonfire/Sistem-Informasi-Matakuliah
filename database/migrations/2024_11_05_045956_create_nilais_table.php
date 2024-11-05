@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('nilais', function (Blueprint $table) {
             $table->id('idnilai');
-            $table->foreignId('idmahasiswa')->constrained('mahasiswas')->onDelete('cascade');
+            $table->foreignId('id')->constrained('mahasiswas')->onDelete('cascade');
             $table->integer('data_mining')->nullable();
             $table->integer('pengenalan_basis_data')->nullable();
             $table->integer('interaksi_manusia_komputer')->nullable();
