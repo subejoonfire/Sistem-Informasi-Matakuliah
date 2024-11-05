@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('dospems', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('idjabatan')->constrained('jabatans')->onDelete('cascade')->nullable();
+            $table->foreign('idjabatan')->references('id')->on('jabatans')->onDelete('cascade');
             $table->json('id')->constrained('matakuliahs')->onDelete('cascade')->nullable();
             $table->string('namadosen');
             $table->timestamps();
