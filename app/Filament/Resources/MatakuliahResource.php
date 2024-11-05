@@ -42,7 +42,7 @@ class MatakuliahResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('idmatakuliah')
+                TextColumn::make('id')
                     ->label('ID Mata Kuliah'),
                 TextColumn::make('namamatakuliah')
                     ->searchable()

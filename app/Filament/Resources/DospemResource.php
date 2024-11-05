@@ -43,20 +43,20 @@ class DospemResource extends Resource
                     TextInput::make('namadosen')
                         ->label('Nama Dosen Pembimbing')
                         ->required()->columnSpan(3),
-                    Select::make('idjabatan')->options(Jabatan::all()->mapWithKeys(function ($jabatan) {
+                    Select::make('id')->options(Jabatan::all()->mapWithKeys(function ($jabatan) {
                         return [
                             NULL => 'Tidak ada jabatan',
-                            $jabatan->idjabatan => $jabatan->jabatan
+                            $jabatan->id => $jabatan->jabatan
                         ];
                     }))->label('Jabatan')
                         ->columnSpan(3),
-                    CheckboxList::make('idmatakuliah')->options(Matakuliah::all()->mapWithKeys(function ($matakuliah) {
+                    CheckboxList::make('id')->options(Matakuliah::all()->mapWithKeys(function ($matakuliah) {
                         return [
-                            $matakuliah->idmatakuliah => $matakuliah->namamatakuliah
+                            $matakuliah->id => $matakuliah->namamatakuliah
                         ];
                     }))->label('Mata Kuliah')
                         ->columnSpan(3),
-                    // CheckboxList::make('idmatakuliah')
+                    // CheckboxList::make('id')
                     //     ->relationship('matakuliah', 'namamatakuliah')
                     //     ->label('Mata Kuliah')
                 ])
@@ -75,7 +75,7 @@ class DospemResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->getStateUsing(function ($record) {
-                        return $record->idjabatan ? $record->jabatan->jabatan : 'Tidak ada jabatan';
+                        return $record->id ? $record->jabatan->jabatan : 'Tidak ada jabatan';
                     })
                     ->label('Nama Jabatan'),
                 TextColumn::make('matakuliah')

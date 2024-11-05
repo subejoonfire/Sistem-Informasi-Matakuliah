@@ -34,18 +34,18 @@ class MahasiswaResource extends Resource
         return $form
             ->schema([
                 Card::make()->schema([
-                    Select::make('idkelas')
+                    Select::make('id')
                         ->options(Kelas::all()->mapWithKeys(function ($kelas) {
                             return [
-                                $kelas->idkelas => $kelas->kodekelas
+                                $kelas->id => $kelas->kodekelas
                             ];
                         }))
                         ->label('Kelas'),
-                    Select::make('iddospem')
-                        ->name('iddospem')
+                    Select::make('id')
+                        ->name('id')
                         ->options(Dospem::all()->mapWithKeys(function ($dospem) {
                             return [
-                                $dospem->iddospem => $dospem->namadosen
+                                $dospem->id => $dospem->namadosen
                             ];
                         }))
                         ->label('Nama Dosen Pembimbing'),
@@ -61,7 +61,7 @@ class MahasiswaResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('idmahasiswa')
+                TextColumn::make('id')
                     ->label('ID Mahasiswa')
                     ->sortable()
                     ->searchable(),
@@ -75,14 +75,14 @@ class MahasiswaResource extends Resource
                     ->label('Kelas')
                     ->sortable()
                     ->getStateUsing(function ($record) {
-                        return $record->idkelas ? $record->kelas->kodekelas : 'Tidak ada kelas';
+                        return $record->id ? $record->kelas->kodekelas : 'Tidak ada kelas';
                     })
                     ->searchable(),
                 TextColumn::make('dospem.namadosen')
                     ->label('Dosen Pembimbing')
                     ->sortable()
                     ->getStateUsing(function ($record) {
-                        return $record->iddospem ? $record->dospem->namadosen    : 'Tidak ada dosen pembimbing';
+                        return $record->id ? $record->dospem->namadosen    : 'Tidak ada dosen pembimbing';
                     })
                     ->searchable(),
             ])

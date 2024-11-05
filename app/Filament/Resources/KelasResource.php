@@ -74,24 +74,11 @@ class KelasResource extends Resource
             //
         ];
     }
-    public static function infolist(Infolist $infolist): Infolist
-    {
-        return $infolist
-            ->schema([
-                TextEntry::make('mahasiswa')
-                    ->getStateUsing(function ($record) {
-                        return $record->mahasiswa && $record->mahasiswa->isNotEmpty()
-                            ? $record->mahasiswa->map(fn($mahasiswa) => "• {$mahasiswa->namamahasiswa}")->implode("<br>")
-                            : 'Tidak ada mahasiswa';
-                    })
-                    ->html()
-                    ->label('Daftar Mahasiswa'),
-            ]);
-    }
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListKelas::route('/'),
+            'view' => Pages\ViewKelas::route('/{record}/view'),
             'create' => Pages\CreateKelas::route('/create'),
             'edit' => Pages\EditKelas::route('/{record}/edit'),
         ];
