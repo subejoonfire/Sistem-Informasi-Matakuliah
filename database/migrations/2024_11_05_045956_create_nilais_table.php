@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('nilais', function (Blueprint $table) {
-            $table->id('idnilai');
-            $table->foreignId('id')->constrained('mahasiswas')->onDelete('cascade');
+            $table->id('id');
+            $table->foreignId('idmahasiswa')->constrained('mahasiswas')->onDelete('cascade');
             $table->integer('data_mining')->nullable();
             $table->integer('pengenalan_basis_data')->nullable();
             $table->integer('interaksi_manusia_komputer')->nullable();
