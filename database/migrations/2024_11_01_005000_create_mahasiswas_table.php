@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dospems', function (Blueprint $table) {
-            $table->id('id');
-            $table->unsignedBigInteger('idjabatan')->index();
-            $table->json('idmatkul')->nullable();
-            $table->string('namadosen');
+        Schema::create('mahasiswas', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('idkelas');
+            $table->unsignedBigInteger('iddospem');
+            $table->string('namamahasiswa');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dospems');
+        Schema::dropIfExists('mahasiswas');
     }
 };

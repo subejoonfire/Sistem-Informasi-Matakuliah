@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('nilais', function (Blueprint $table) {
             $table->id();
-            $table->foreign('idmahasiswa')->references('id')->on('mahasiswas')->onDelete('cascade');
+            $table->unsignedBigInteger('idmahasiswa');
             $table->integer('data_mining')->nullable();
             $table->integer('pengenalan_basis_data')->nullable();
             $table->integer('interaksi_manusia_komputer')->nullable();
@@ -25,6 +25,9 @@ return new class extends Migration
             $table->integer('jaringan_komputer')->nullable();
             $table->integer('keamanan_informasi')->nullable();
             $table->timestamps();
+        });
+        Schema::table('nilais', function (Blueprint $table) {
+            $table->foreign('idmahasiswa')->references('id')->on('mahasiswas');
         });
     }
 
