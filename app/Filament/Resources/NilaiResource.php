@@ -31,7 +31,8 @@ class NilaiResource extends Resource
                 Forms\Components\Select::make('idmahasiswa')
                     ->label('Mahasiswa')
                     ->relationship('mahasiswa', 'namamahasiswa')
-                    ->columnSpan(5)
+                    ->columnSpan(3.5)
+                    ->unique()
                     ->required(),
 
                 Forms\Components\TextInput::make('data_mining')
@@ -94,7 +95,7 @@ class NilaiResource extends Resource
                 TextColumn::make('mahasiswa.namamahasiswa')->label('Nama Mahasiswa'),
                 TextColumn::make('kelas.kodekelas')->label('Nama Kelas'),
                 TextColumn::make('data_mining')->label('Data Mining'),
-                TextColumn::make('pengenalan_basis_dat  a')->label('Pengenalan Basis Data'),
+                TextColumn::make('pengenalan_basis_data')->label('Pengenalan Basis Data'),
                 TextColumn::make('interaksi_manusia_komputer')->label('Interaksi Manusia Komputer'),
                 TextColumn::make('pemrograman_website')->label('Pemrograman Website'),
                 TextColumn::make('rekayasa_perangkat_lunak')->label('Rekayasa Perangkat Lunak'),

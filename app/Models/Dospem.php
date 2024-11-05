@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Jabatan;
 use App\Models\Matakuliah;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Dospem extends Model
@@ -30,8 +31,8 @@ class Dospem extends Model
 
         return Matakuliah::whereIn('matakuliahs.id', $matakuliahIds)->pluck('namamatakuliah')->toArray();
     }
-    public function mahasiswa(): HasMany
+    public function mahasiswa(): BelongsTo
     {
-        return $this->hasMany(Mahasiswa::class, 'idmahasiswa');
+        return $this->belongsTo(Mahasiswa::class, 'id', 'iddospem');
     }
 }

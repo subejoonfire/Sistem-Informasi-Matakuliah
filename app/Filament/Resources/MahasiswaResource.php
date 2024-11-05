@@ -34,18 +34,18 @@ class MahasiswaResource extends Resource
         return $form
             ->schema([
                 Card::make()->schema([
-                    Select::make('id')
+                    Select::make('idkelas')
                         ->options(Kelas::all()->mapWithKeys(function ($kelas) {
                             return [
                                 $kelas->id => $kelas->kodekelas
                             ];
                         }))
                         ->label('Kelas'),
-                    Select::make('id')
-                        ->name('id')
+                    Select::make('iddospem')
+                        ->name('iddospem')
                         ->options(Dospem::all()->mapWithKeys(function ($dospem) {
                             return [
-                                $dospem->id => $dospem->namadosen
+                                $dospem->iddospem => $dospem->namadosen
                             ];
                         }))
                         ->label('Nama Dosen Pembimbing'),
@@ -82,7 +82,7 @@ class MahasiswaResource extends Resource
                     ->label('Dosen Pembimbing')
                     ->sortable()
                     ->getStateUsing(function ($record) {
-                        return $record->id ? $record->dospem->namadosen    : 'Tidak ada dosen pembimbing';
+                        return $record->iddospem ? $record->dospem->namadosen : 'Tidak ada dosen pembimbing';
                     })
                     ->searchable(),
             ])
