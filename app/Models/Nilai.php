@@ -29,11 +29,10 @@ class Nilai extends Model
     ];
     public function mahasiswa()
     {
-        return $this->belongsTo(Mahasiswa::class, 'id');
+        return $this->belongsTo(Mahasiswa::class, 'idmahasiswa', 'id');
     }
     public function kelas()
     {
-        return $this->belongsToMany(Kelas::class, 'mahasiswas', 'id', 'id')
-            ->withPivot('id');
+        return $this->belongsTo(Kelas::class, 'idkelas', 'id');
     }
 }

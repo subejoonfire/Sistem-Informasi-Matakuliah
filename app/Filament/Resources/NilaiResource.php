@@ -10,11 +10,8 @@ use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
-use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\NilaiResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\NilaiResource\RelationManagers;
 use Filament\Forms\Components\Select;
+use App\Filament\Resources\NilaiResource\Pages;
 
 class NilaiResource extends Resource
 {
@@ -28,59 +25,65 @@ class NilaiResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('idmahasiswa')
+                Select::make('idmahasiswa')
                     ->label('Mahasiswa')
                     ->relationship('mahasiswa', 'namamahasiswa')
-                    ->columnSpan(3.5)
+                    ->columnSpan(5)
                     ->unique()
                     ->required(),
 
-                Forms\Components\TextInput::make('data_mining')
+                Select::make('id')
+                    ->label('Kelas')
+                    ->relationship('kelas', 'kodekelas')
+                    ->columnSpan(5)
+                    ->required(),
+
+                TextInput::make('data_mining')
                     ->label('Data Mining')
                     ->numeric()
                     ->default(0),
 
-                Forms\Components\TextInput::make('pengenalan_basis_data')
+                TextInput::make('pengenalan_basis_data')
                     ->label('Pengenalan Basis Data')
                     ->numeric()
                     ->default(0),
 
-                Forms\Components\TextInput::make('interaksi_manusia_komputer')
+                TextInput::make('interaksi_manusia_komputer')
                     ->label('Interaksi Manusia Komputer')
                     ->numeric()
                     ->default(0),
 
-                Forms\Components\TextInput::make('pemrograman_website')
+                TextInput::make('pemrograman_website')
                     ->label('Pemrograman Website')
                     ->numeric()
                     ->default(0),
 
-                Forms\Components\TextInput::make('rekayasa_perangkat_lunak')
+                TextInput::make('rekayasa_perangkat_lunak')
                     ->label('Rekayasa Perangkat Lunak')
                     ->numeric()
                     ->default(0),
 
-                Forms\Components\TextInput::make('it_proyek')
+                TextInput::make('it_proyek')
                     ->label('IT Proyek')
                     ->numeric()
                     ->default(0),
 
-                Forms\Components\TextInput::make('pemrograman_visual')
+                TextInput::make('pemrograman_visual')
                     ->label('Pemrograman Visual')
                     ->numeric()
                     ->default(0),
 
-                Forms\Components\TextInput::make('sistem_informasi')
+                TextInput::make('sistem_informasi')
                     ->label('Sistem Informasi')
                     ->numeric()
                     ->default(0),
 
-                Forms\Components\TextInput::make('jaringan_komputer')
+                TextInput::make('jaringan_komputer')
                     ->label('Jaringan Komputer')
                     ->numeric()
                     ->default(0),
 
-                Forms\Components\TextInput::make('keamanan_informasi')
+                TextInput::make('keamanan_informasi')
                     ->label('Keamanan Informasi')
                     ->numeric()
                     ->default(0),
@@ -91,9 +94,8 @@ class NilaiResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id')->label('ID Mahasiswa'),
-                TextColumn::make('mahasiswa.namamahasiswa')->label('Nama Mahasiswa'),
-                TextColumn::make('kelas.kodekelas')->label('Nama Kelas'),
+                TextColumn::make('mahasiswa.namamahasiswa')->label('Nama Mahasiswa')->searchable(),
+                TextColumn::make('mahasiswa.kelas.kodekelas')->label('Kelas')->searchable(),
                 TextColumn::make('data_mining')->label('Data Mining'),
                 TextColumn::make('pengenalan_basis_data')->label('Pengenalan Basis Data'),
                 TextColumn::make('interaksi_manusia_komputer')->label('Interaksi Manusia Komputer'),
