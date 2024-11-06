@@ -15,8 +15,8 @@ class Kelas extends Model
     {
         return $this->hasMany(Mahasiswa::class, 'id');
     }
-    public function mahasiswa(): HasMany
+    public function mahasiswa()
     {
-        return $this->hasMany(Mahasiswa::class, 'id');
+        return $this->belongsTo(Mahasiswa::class, 'id', 'idkelas');
     }
 }

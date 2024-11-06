@@ -50,8 +50,8 @@ class KelasResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('kodekelas')->label('Kode Kelas'),
-                TextColumn::make('mahasiswacount_count')
-                    ->counts('mahasiswacount')
+                TextColumn::make('mahasiswa_count')
+                    ->counts('mahasiswa')
                     ->label('Jumlah Mahasiswa'),
             ])
             ->filters([
