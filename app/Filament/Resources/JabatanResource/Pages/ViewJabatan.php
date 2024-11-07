@@ -47,13 +47,13 @@ class ViewJabatan extends ManageRelatedRecords
                 //
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
-                Tables\Actions\AssociateAction::make(),
+                // Tables\Actions\CreateAction::make(),
+                // Tables\Actions\AssociateAction::make(),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DissociateAction::make(),
+                // Tables\Actions\ViewAction::make(),
+                // Tables\Actions\EditAction::make(),
+                // Tables\Actions\DissociateAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
