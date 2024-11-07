@@ -43,11 +43,7 @@ class MahasiswaResource extends Resource
                         ->label('Kelas'),
                     Select::make('iddospem')
                         ->name('iddospem')
-                        ->options(Dospem::all()->mapWithKeys(function ($dospem) {
-                            return [
-                                $dospem->iddospem => $dospem->namadosen
-                            ];
-                        }))
+                        ->relationship('dospem', 'namadosen')
                         ->label('Nama Dosen Pembimbing'),
                     TextInput::make('namamahasiswa')
                         ->required()
@@ -78,12 +74,12 @@ class MahasiswaResource extends Resource
                         return $record->idkelas ? $record->kelas->kodekelas : 'Tidak ada kelas';
                     })
                     ->searchable(),
-                TextColumn::make('dospem.namadosen')
-                    ->label('Dosen Pembimbing')
-                    ->sortable()
+                TextColumn::make('iddospem')
                     ->getStateUsing(function ($record) {
                         return $record->iddospem ? $record->dospem->namadosen : 'Tidak ada dosen pembimbing';
                     })
+                    ->label('Dosen Pembimbing')
+                    ->sortable()
                     ->searchable(),
             ])
             ->filters([

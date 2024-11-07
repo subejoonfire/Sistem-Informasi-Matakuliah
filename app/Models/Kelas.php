@@ -11,10 +11,6 @@ class Kelas extends Model
 {
     protected $primaryKey = 'id';
     protected $fillable = ['kodekelas'];
-    public function mahasiswacount(): HasMany
-    {
-        return $this->hasMany(Mahasiswa::class, 'id');
-    }
     public function mahasiswa()
     {
         return $this->belongsTo(Mahasiswa::class, 'id', 'idkelas');

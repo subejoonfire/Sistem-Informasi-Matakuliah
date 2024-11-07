@@ -13,6 +13,6 @@ class Jabatan extends Model
 
     public function dosen()
     {
-        return $this->hasMany(Dospem::class, 'id');
+        return $this->hasMany(Dospem::class, 'idjabatan', 'id');
     }
 }

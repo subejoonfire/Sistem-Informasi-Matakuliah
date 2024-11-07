@@ -29,10 +29,10 @@ class ViewDospem extends ManageRelatedRecords
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('namamahasiswa')
-                    ->required()
+                Forms\Components\Select::make('mahasiswa.iddospem')
+                    ->relationship('mahasiswa', 'namamahasiswa')
                     ->label('Nama Mahasiswa')
-                    ->maxLength(255),
+                    ->required()
             ]);
     }
 
@@ -52,13 +52,13 @@ class ViewDospem extends ManageRelatedRecords
                 //
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
-                Tables\Actions\AssociateAction::make(),
+                // Tables\Actions\CreateAction::make(),
+                // Tables\Actions\AssociateAction::make(),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DissociateAction::make(),
+                // Tables\Actions\ViewAction::make(),
+                // Tables\Actions\EditAction::make(),
+                // Tables\Actions\DissociateAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([

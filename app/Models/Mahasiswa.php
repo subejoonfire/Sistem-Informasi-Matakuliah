@@ -13,11 +13,11 @@ class Mahasiswa extends Model
 
     public function kelas()
     {
-        return $this->belongsTo(Kelas::class, 'idkelas');
+        return $this->belongsTo(Kelas::class, 'idkelas', 'id');
     }
 
     public function dospem()
     {
-        return $this->belongsTo(Dospem::class, 'iddospem');
+        return $this->belongsTo(Dospem::class, 'iddospem', 'id');
     }
 }

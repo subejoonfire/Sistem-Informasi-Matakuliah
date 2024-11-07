@@ -48,6 +48,10 @@ class JabatanResource extends Resource
                 TextColumn::make('jabatan')
                     ->sortable()
                     ->label('Nama Jabatan'),
+                TextColumn::make('dosen_count')
+                    ->counts('dosen')
+                    ->sortable()
+                    ->label('Jumlah Dosen'),
             ])
             ->filters([
                 //

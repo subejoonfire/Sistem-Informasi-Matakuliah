@@ -43,22 +43,18 @@ class DospemResource extends Resource
                     TextInput::make('namadosen')
                         ->label('Nama Dosen Pembimbing')
                         ->required()->columnSpan(3),
-                    Select::make('id')->options(Jabatan::all()->mapWithKeys(function ($jabatan) {
-                        return [
-                            NULL => 'Tidak ada jabatan',
-                            $jabatan->id => $jabatan->jabatan
-                        ];
-                    }))->label('Jabatan')
+                    Select::make('idjabatan')
+                        ->relationship('jabatan', 'jabatan')
+                        ->label('Jabatan')
                         ->columnSpan(3),
-                    CheckboxList::make('id')->options(Matakuliah::all()->mapWithKeys(function ($matakuliah) {
-                        return [
-                            $matakuliah->id => $matakuliah->namamatakuliah
-                        ];
-                    }))->label('Mata Kuliah')
-                        ->columnSpan(3),
-                    // CheckboxList::make('id')
-                    //     ->relationship('matakuliah', 'namamatakuliah')
-                    //     ->label('Mata Kuliah')
+                    CheckboxList::make('idmatkul')
+                        ->options(Matakuliah::all()->mapWithKeys(function ($matakuliah) {
+                            return [
+                                $matakuliah->id => $matakuliah->namamatakuliah
+                            ];
+                        }))
+                        ->label('Mata Kuliah')
+                        ->columnSpan(3)
                 ])
             ]);
     }
@@ -74,9 +70,6 @@ class DospemResource extends Resource
                 TextColumn::make('jabatan.jabatan')
                     ->searchable()
                     ->sortable()
-                    ->getStateUsing(function ($record) {
-                        return $record->id ? $record->jabatan->jabatan : 'Tidak ada jabatan';
-                    })
                     ->label('Nama Jabatan'),
                 TextColumn::make('matakuliah')
                     ->label('Mata Kuliah')

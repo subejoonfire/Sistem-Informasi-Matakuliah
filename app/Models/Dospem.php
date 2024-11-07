@@ -13,9 +13,8 @@ class Dospem extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['namadosen', 'idjabatan', 'idmatkul'];
     protected $casts = [
-        'idmatkul' => 'array',
+        'idmatkul' => 'json',
     ];
-
     public function jabatan()
     {
 
@@ -31,7 +30,11 @@ class Dospem extends Model
 
         return Matakuliah::whereIn('matakuliahs.id', $matakuliahIds)->pluck('namamatakuliah')->toArray();
     }
-    public function mahasiswa(): BelongsTo
+    public function matakuliah()
+    {
+        return $this->belongsToMany(Matakuliah::class, 'dospems', 'idmatkul', 'id');
+    }
+    public function mahasiswa()
     {
         return $this->belongsTo(Mahasiswa::class, 'id', 'iddospem');
     }
