@@ -8,6 +8,7 @@ use Filament\Widgets;
 use Filament\PanelProvider;
 use Filament\Navigation\MenuItem;
 use Filament\Support\Colors\Color;
+use Filament\Support\Enums\MaxWidth;
 use Filament\Navigation\NavigationGroup;
 use App\Filament\Resources\DospemResource;
 use Filament\Http\Middleware\Authenticate;
@@ -31,8 +32,10 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Blue,
             ])
+            ->maxContentWidth(MaxWidth::Full)
+            ->sidebarCollapsibleOnDesktop()
             ->userMenuItems([
                 'settings' => MenuItem::make()
                     ->url('/admin/settings')
