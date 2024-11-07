@@ -74,6 +74,9 @@ class MahasiswaResource extends Resource
                 TextColumn::make('kelas.kodekelas')
                     ->label('Kelas')
                     ->sortable()
+                    ->getStateUsing(function ($record) {
+                        return $record->idkelas ? $record->kelas->kodekelas : 'Tidak ada kelas';
+                    })
                     ->searchable(),
                 TextColumn::make('dospem.namadosen')
                     ->label('Dosen Pembimbing')
