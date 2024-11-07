@@ -29,9 +29,8 @@ class ViewKelas extends ManageRelatedRecords
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('id')
-                    ->required()
-                    ->maxLength(255),
+                Forms\Components\Select::make('idkelas')
+                    ->relationship('kelas', 'kodekelas'),
             ]);
     }
 
@@ -47,13 +46,13 @@ class ViewKelas extends ManageRelatedRecords
                 //
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
-                Tables\Actions\AssociateAction::make(),
+                // Tables\Actions\CreateAction::make(),
+                // Tables\Actions\AssociateAction::make(),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DissociateAction::make(),
+                // Tables\Actions\DissociateAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
